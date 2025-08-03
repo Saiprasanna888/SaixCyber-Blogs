@@ -15,14 +15,23 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8">
-        <section className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold text-primary mb-4">Welcome to My Cybersecurity Blog</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Exploring the depths of cybersecurity, from SOC analysis to real-world threats and personal insights.
-          </p>
+        <section 
+          className="relative bg-cover bg-center rounded-lg overflow-hidden mb-12" 
+          style={{ backgroundImage: "url('/images/Home.png')", height: '60vh', minHeight: '400px' }}
+        >
+          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
+            <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg">CYBER DEFENDERS' HUB</h1>
+            <p className="text-xl max-w-2xl mx-auto drop-shadow-md">
+              Insights for SOC Analysts & Security Professionals
+            </p>
+            <a href="#categories-section" className="mt-8 px-8 py-3 bg-lime-400 text-black font-bold rounded-md hover:bg-lime-500 transition-colors duration-300">
+              Explore Articles
+            </a>
+          </div>
         </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <section id="categories-section" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {categories.map((category) => {
             const latestPost = getLatestPostByCategory(category.id as BlogPost['category']);
             return (
