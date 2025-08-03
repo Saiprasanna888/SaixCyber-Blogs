@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu } from 'lucide-react';
+import { Menu, ChevronDown } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const Navbar = () => {
-  const navLinks = [
+  const mainLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
+  ];
+
+  const categoryLinks = [
     { name: 'SOC Analyst Insights & Labs', path: '/#soc-analyst' },
     { name: 'Real-World Cyberattacks & Case Studies', path: '/#cyberattacks' },
     { name: 'Cybersecurity Tools & Techniques', path: '/#tools-techniques' },
@@ -21,8 +30,8 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-6">
-          {navLinks.map((link) => (
+        <div className="hidden md:flex space-x-6 items-center">
+          {mainLinks.map((link) => (
             <a
               key={link.name}
               href={link.path}
@@ -31,6 +40,24 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
+          
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center hover:text-accent-foreground transition-colors">
+              Categories <ChevronDown className="ml-1 h-4 w-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-background text-foreground">
+              {categoryLinks.map((link) => (
+                <DropdownMenuItem key={link.name} asChild>
+                  <a
+                    href={link.path}
+                    className="w-full cursor-pointer hover:bg-accent hover:text-accent-foreground"
+                  >
+                    {link.name}
+                  </a>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Mobile Navigation */}
@@ -44,7 +71,7 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[250px] sm:w-[300px] bg-background text-foreground">
               <nav className="flex flex-col gap-4 pt-8">
-                {navLinks.map((link) => (
+                {mainLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.path}
@@ -53,6 +80,18 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
+                <div className="text-lg font-medium">Categories</div>
+                <div className="flex flex-col gap-2 pl-4">
+                  {categoryLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.path}
+                      className="text-base font-medium hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
               </nav>
             </SheetContent>
           </Sheet>
