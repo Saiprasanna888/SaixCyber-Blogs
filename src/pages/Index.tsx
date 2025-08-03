@@ -24,18 +24,18 @@ const Index = () => {
         >
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
-            <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg">CYBER DEFENDERS' HUB</h1>
-            <p className="text-xl max-w-2xl mx-auto drop-shadow-md">
+            <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">CYBER DEFENDERS' HUB</h1>
+            <p className="text-lg sm:text-xl max-w-2xl mx-auto drop-shadow-md">
               Insights for SOC Analysts & Security Professionals
             </p>
-            <a href="#recent-blogs" className="mt-8 px-8 py-3 bg-lime-400 text-black font-bold rounded-md hover:bg-lime-500 transition-colors duration-300">
+            <a href="#recent-blogs" className="mt-8 px-6 py-3 sm:px-8 bg-lime-400 text-black font-bold rounded-md hover:bg-lime-500 transition-colors duration-300">
               Explore Articles
             </a>
           </div>
         </section>
 
         <section id="recent-blogs" className="mb-12">
-          <h2 className="text-4xl font-bold text-primary mb-8 text-center">Recent Blogs</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">Recent Blogs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {recentPosts.map((post) => (
               <BlogPostCard key={post.id} post={post} />
@@ -44,7 +44,7 @@ const Index = () => {
         </section>
 
         <section id="categories-section" className="py-12">
-          <h2 className="text-4xl font-bold text-primary mb-8 text-center">Explore by Category</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">Explore by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {categories.map((category) => {
               const latestPost = getLatestPostByCategory(category.id as BlogPost['category']);
@@ -59,7 +59,7 @@ const Index = () => {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold text-primary mb-4 text-center">{category.title}</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 text-center">{category.title}</h3>
                     {latestPost ? (
                       <div>
                         <p className="text-center text-sm text-muted-foreground mb-4">Latest Post:</p>

@@ -6,8 +6,8 @@ const About = () => {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-primary mb-6 text-center">About Me</h1>
-        <div className="max-w-3xl mx-auto bg-card p-8 rounded-lg shadow-md border border-border">
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-6 text-center">About Me</h1>
+        <div className="max-w-3xl mx-auto bg-card p-6 sm:p-8 rounded-lg shadow-md border border-border">
           <p className="text-lg mb-4">
             Hello! I'm Saiprasanna, a passionate cybersecurity enthusiast and aspiring professional. This blog is my personal space to share insights, document my learning journey, and discuss various topics within the cybersecurity domain.
           </p>

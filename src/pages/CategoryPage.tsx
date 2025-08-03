@@ -35,18 +35,18 @@ const CategoryPage = () => {
       <Navbar />
       <main className="flex-grow">
         <section 
-          className="relative bg-cover bg-center h-64 mb-12 flex items-end justify-center" 
+          className="relative bg-cover bg-center h-48 sm:h-56 md:h-64 mb-8 md:mb-12 flex items-end justify-center" 
           style={{ backgroundImage: `url(${bannerImage})` }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-          <div className="relative z-10 text-center text-white/80 p-4 pb-8">
-            <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-lg">{categoryTitle}</h1>
+          <div className="relative z-10 text-center text-white/80 p-4 pb-6 md:pb-8">
+            <h1 className="text-3xl text-center sm:text-4xl md:text-5xl font-extrabold drop-shadow-lg">{categoryTitle}</h1>
           </div>
         </section>
         
         <div className="container mx-auto px-4 pb-8">
           {posts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {posts.map(post => (
                 <BlogPostCard key={post.id} post={post} />
               ))}
