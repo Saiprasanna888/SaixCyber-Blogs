@@ -35,11 +35,11 @@ const CategoryPage = () => {
       <Navbar />
       <main className="flex-grow">
         <section 
-          className="relative bg-cover bg-center h-64 mb-12 flex items-center justify-center" 
+          className="relative bg-cover bg-center h-64 mb-12 flex items-end justify-center" 
           style={{ backgroundImage: `url(${bannerImage})` }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-          <div className="relative z-10 text-center text-white p-4">
+          <div className="relative z-10 text-center text-white p-4 pb-12">
             <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-lg">{categoryTitle}</h1>
           </div>
         </section>
