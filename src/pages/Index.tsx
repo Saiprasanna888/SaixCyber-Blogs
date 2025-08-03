@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogPostCard from '@/components/BlogPostCard';
-import { getLatestPostByCategory, BlogPost } from '@/data/blogPosts';
+import { getLatestPostByCategory, getTrendingPosts, BlogPost } from '@/data/blogPosts';
 
 const Index = () => {
   const categories = [
@@ -10,6 +10,8 @@ const Index = () => {
     { id: 'tools-techniques', title: 'Cybersecurity Tools & Techniques' },
     { id: 'news-journey', title: 'Cybersecurity News & My Journey' },
   ];
+
+  const trendingPosts = getTrendingPosts();
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -30,6 +32,17 @@ const Index = () => {
             </a>
           </div>
         </section>
+
+        {trendingPosts.length > 0 && (
+          <section id="trending-section" className="mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-8 text-center">Trending Blogs</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {trendingPosts.map((post) => (
+                <BlogPostCard key={post.id} post={post} />
+              ))}
+            </div>
+          </section>
+        )}
 
         <section id="categories-section" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {categories.map((category) => {
