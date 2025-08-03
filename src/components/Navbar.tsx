@@ -4,10 +4,10 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 
 const Navbar = () => {
   const categories = [
-    { name: 'SOC Analyst Insights & Labs', slug: 'soc-analyst-insights' },
-    { name: 'Real-World Cyberattacks & Case Studies', slug: 'cyberattacks-case-studies' },
-    { name: 'Cybersecurity Tools & Techniques', slug: 'cybersecurity-tools' },
-    { name: 'Cybersecurity News & My Journey', slug: 'cybersecurity-news-journey' }
+    { name: 'SOC Analyst Insights & Labs', slug: 'soc-analyst' },
+    { name: 'Real-World Cyberattacks & Case Studies', slug: 'cyberattacks' },
+    { name: 'Cybersecurity Tools & Techniques', slug: 'tools-techniques' },
+    { name: 'Cybersecurity News & My Journey', slug: 'news-journey' }
   ];
 
   return (
