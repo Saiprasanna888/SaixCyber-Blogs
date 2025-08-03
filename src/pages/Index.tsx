@@ -50,18 +50,14 @@ const Index = () => {
               const latestPost = getLatestPostByCategory(category.id as BlogPost['category']);
               return (
                 <Link to={`/${category.id}`} key={category.id} className="group block bg-card rounded-lg shadow-md border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  <div className="relative h-48">
-                    <img 
-                      src={category.image} 
-                      alt={category.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      onError={(e) => { e.currentTarget.src = '/placeholder.svg'; }}
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 transition-opacity duration-300 group-hover:bg-opacity-60">
-                      <h3 className="text-2xl font-bold text-white text-center drop-shadow-lg">{category.title}</h3>
-                    </div>
-                  </div>
+                  <img 
+                    src={category.image} 
+                    alt={category.title} 
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => { e.currentTarget.src = '/placeholder.svg'; }}
+                  />
                   <div className="p-6">
+                    <h3 className="text-2xl font-bold text-primary mb-4 text-center">{category.title}</h3>
                     {latestPost ? (
                       <div>
                         <p className="text-center text-sm text-muted-foreground mb-4">Latest Post:</p>
