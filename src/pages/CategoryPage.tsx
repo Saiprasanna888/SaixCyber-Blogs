@@ -6,10 +6,10 @@ import { getPostsByCategory, BlogPost, categoryMap } from '../data/blogPosts';
 import { useEffect, useState } from 'react';
 
 const categoryBanners: Record<string, string> = {
-  'soc-analyst': '/images/banners/soc-analyst.png',
-  'cyberattacks': '/images/banners/cyberattacks.png',
-  'tools-techniques': '/images/banners/tools-techniques.png',
-  'news-journey': '/images/banners/news-journey.png',
+  'soc-analyst': '/images/soc-analyst-insights-labs.png',
+  'cyberattacks': '/images/real-world-cyberattacks.png',
+  'tools-techniques': '/images/cybersecurity-tools-techniques.png',
+  'news-journey': '/images/cybersecurity-news-journey.png',
 };
 
 const CategoryPage = () => {
