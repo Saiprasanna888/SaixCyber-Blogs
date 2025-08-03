@@ -9,6 +9,13 @@ export interface BlogPost {
   htmlPath: string; // Path to the static HTML file
 }
 
+export const categoryMap: Record<string, string> = {
+  'soc-analyst': 'SOC Analyst Insights & Labs',
+  'cyberattacks': 'Real-World Cyberattacks & Case Studies',
+  'tools-techniques': 'Cybersecurity Tools & Techniques',
+  'news-journey': 'Cybersecurity News & My Journey',
+};
+
 export const blogPosts: BlogPost[] = [
   {
     id: 'soc-analyst-1',

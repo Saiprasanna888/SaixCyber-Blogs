@@ -2,15 +2,8 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import BlogPostCard from '../components/BlogPostCard';
-import { getPostsByCategory, BlogPost } from '../data/blogPosts';
+import { getPostsByCategory, BlogPost, categoryMap } from '../data/blogPosts';
 import { useEffect, useState } from 'react';
-
-const categoryMap: Record<string, string> = {
-  'soc-analyst': 'SOC Analyst Insights & Labs',
-  'cyberattacks': 'Real-World Cyberattacks & Case Studies',
-  'tools-techniques': 'Cybersecurity Tools & Techniques',
-  'news-journey': 'Cybersecurity News & My Journey',
-};
 
 const CategoryPage = () => {
   const { category: categorySlug } = useParams<{ category: string }>();
