@@ -18,6 +18,16 @@ export const categoryMap: Record<string, string> = {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 'cyberattacks-2',
+    category: 'cyberattacks',
+    slug: 'what-is-a-homoglyph-attack',
+    title: "What is a Homoglyph Attack? Here's How Hackers Fool Your Eyes 👁️",
+    date: '2025-08-03',
+    author: 'Saiprasanna',
+    previewContent: 'Have you ever visited a website that looked exactly like your bank’s site, but something felt off? That could have been a homoglyph attack — a sneaky trick hackers use to fool your eyes.',
+    htmlPath: '/posts/cyberattacks/what-is-a-homoglyph-attack.html',
+  },
+  {
     id: 'soc-analyst-1',
     category: 'soc-analyst',
     slug: 'understanding-siem-alerts',
