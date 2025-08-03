@@ -7,7 +7,6 @@ export interface BlogPost {
   author: string;
   previewContent: string;
   htmlPath: string; // Path to the static HTML file
-  trending?: boolean;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -20,7 +19,6 @@ export const blogPosts: BlogPost[] = [
     author: 'Saiprasanna',
     previewContent: 'Dive deep into the world of Security Information and Event Management (SIEM) alerts and learn how to effectively analyze and respond to them.',
     htmlPath: '/posts/soc-analyst/understanding-siem-alerts.html',
-    trending: true,
   },
   {
     id: 'cyberattacks-1',
@@ -31,7 +29,6 @@ export const blogPosts: BlogPost[] = [
     author: 'Saiprasanna',
     previewContent: 'An in-depth look at the sophisticated SolarWinds attack, its impact, and the lessons learned for modern cybersecurity.',
     htmlPath: '/posts/cyberattacks/case-study-solarwinds-attack.html',
-    trending: true,
   },
   {
     id: 'tools-techniques-1',
@@ -42,7 +39,6 @@ export const blogPosts: BlogPost[] = [
     author: 'Saiprasanna',
     previewContent: 'Get started with Nmap, the powerful network scanning tool, and learn the basics of port scanning for network reconnaissance.',
     htmlPath: '/posts/tools-techniques/introduction-to-nmap.html',
-    trending: true,
   },
   {
     id: 'news-journey-1',
@@ -63,8 +59,4 @@ export const getPostsByCategory = (category: BlogPost['category']) => {
 export const getLatestPostByCategory = (category: BlogPost['category']) => {
   const posts = getPostsByCategory(category);
   return posts.length > 0 ? posts[0] : null;
-};
-
-export const getTrendingPosts = () => {
-  return blogPosts.filter(post => post.trending).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
