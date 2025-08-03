@@ -60,3 +60,7 @@ export const getLatestPostByCategory = (category: BlogPost['category']) => {
   const posts = getPostsByCategory(category);
   return posts.length > 0 ? posts[0] : null;
 };
+
+export const getAllPosts = () => {
+  return [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+};
