@@ -38,8 +38,8 @@ const CategoryPage = () => {
           className="relative bg-cover bg-center h-64 mb-12 flex items-end justify-center" 
           style={{ backgroundImage: `url(${bannerImage})` }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-          <div className="relative z-10 text-center text-white/80 p-4 pb-12">
+          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+          <div className="relative z-10 text-center text-white/80 p-4 pb-8">
             <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-lg">{categoryTitle}</h1>
           </div>
         </section>
