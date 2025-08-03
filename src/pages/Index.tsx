@@ -51,7 +51,12 @@ const Index = () => {
               return (
                 <Link to={`/${category.id}`} key={category.id} className="group block bg-card rounded-lg shadow-md border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="overflow-hidden">
-                    <img src={category.image} alt={category.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img 
+                      src={category.image} 
+                      alt={category.title} 
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => { e.currentTarget.src = '/placeholder.svg'; }}
+                    />
                   </div>
                   <div className="p-6">
                     <h3 className="text-2xl font-bold text-primary mb-4 text-center">{category.title}</h3>
