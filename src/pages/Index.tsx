@@ -2,13 +2,14 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogPostCard from '@/components/BlogPostCard';
 import { getLatestPostByCategory, getAllPosts, BlogPost } from '@/data/blogPosts';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const categories = [
-    { id: 'soc-analyst', title: 'SOC Analyst Insights & Labs' },
-    { id: 'cyberattacks', title: 'Real-World Cyberattacks & Case Studies' },
-    { id: 'tools-techniques', title: 'Cybersecurity Tools & Techniques' },
-    { id: 'news-journey', title: 'Cybersecurity News & My Journey' },
+    { id: 'soc-analyst', title: 'SOC Analyst Insights & Labs', image: '/images/soc-analyst-insights-labs.png' },
+    { id: 'cyberattacks', title: 'Real-World Cyberattacks & Case Studies', image: '/images/real-world-cyberattacks.png' },
+    { id: 'tools-techniques', title: 'Cybersecurity Tools & Techniques', image: '/images/cybersecurity-tools-techniques.png' },
+    { id: 'news-journey', title: 'Cybersecurity News & My Journey', image: '/images/cybersecurity-news-journey.png' },
   ];
 
   const recentPosts = getAllPosts().slice(0, 3);
@@ -44,18 +45,26 @@ const Index = () => {
 
         <section id="categories-section" className="py-12">
           <h2 className="text-4xl font-bold text-primary mb-8 text-center">Explore by Category</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {categories.map((category) => {
               const latestPost = getLatestPostByCategory(category.id as BlogPost['category']);
               return (
-                <div key={category.id} id={category.id} className="bg-card p-6 rounded-lg shadow-md border border-border">
-                  <h2 className="text-3xl font-bold text-primary mb-6 text-center">{category.title}</h2>
-                  {latestPost ? (
-                    <BlogPostCard post={latestPost} />
-                  ) : (
-                    <p className="text-center text-muted-foreground">No posts in this category yet.</p>
-                  )}
-                </div>
+                <Link to={`/${category.id}`} key={category.id} className="group block bg-card rounded-lg shadow-md border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="overflow-hidden">
+                    <img src={category.image} alt={category.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-primary mb-4 text-center">{category.title}</h3>
+                    {latestPost ? (
+                      <div>
+                        <p className="text-center text-sm text-muted-foreground mb-4">Latest Post:</p>
+                        <BlogPostCard post={latestPost} />
+                      </div>
+                    ) : (
+                      <p className="text-center text-muted-foreground mt-4">No posts in this category yet.</p>
+                    )}
+                  </div>
+                </Link>
               );
             })}
           </div>
