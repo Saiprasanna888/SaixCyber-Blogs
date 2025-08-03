@@ -39,7 +39,7 @@ const CategoryPage = () => {
           style={{ backgroundImage: `url(${bannerImage})` }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-          <div className="relative z-10 text-center text-white p-4 pb-12">
+          <div className="relative z-10 text-center text-white/80 p-4 pb-12">
             <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-lg">{categoryTitle}</h1>
           </div>
         </section>
