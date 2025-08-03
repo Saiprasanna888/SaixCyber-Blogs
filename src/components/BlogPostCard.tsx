@@ -11,15 +11,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
   const categoryName = categoryMap[post.category] || 'Uncategorized';
 
   return (
-    <Card className="w-full max-w-sm mx-auto hover:shadow-lg transition-shadow duration-300 flex flex-col h-full overflow-hidden">
-      <a href={post.htmlPath} className="block">
-        <img
-          src={post.image}
-          alt={post.title}
-          className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
-          onError={(e) => { e.currentTarget.src = '/placeholder.svg'; }}
-        />
-      </a>
+    <Card className="w-full max-w-sm mx-auto hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
       <CardHeader>
         <Badge variant="secondary" className="mb-2 w-fit">{categoryName}</Badge>
         <CardTitle className="text-xl font-semibold text-primary">{post.title}</CardTitle>

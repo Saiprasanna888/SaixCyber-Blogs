@@ -7,7 +7,6 @@ export interface BlogPost {
   author: string;
   previewContent: string;
   htmlPath: string; // Path to the static HTML file
-  image: string; // Path to the post's image
 }
 
 export const categoryMap: Record<string, string> = {
@@ -27,7 +26,6 @@ export const blogPosts: BlogPost[] = [
     author: 'Saiprasanna',
     previewContent: 'Dive deep into the world of Security Information and Event Management (SIEM) alerts and learn how to effectively analyze and respond to them.',
     htmlPath: '/posts/soc-analyst/understanding-siem-alerts.html',
-    image: '/images/posts/soc-analyst/understanding-siem-alerts.png',
   },
   {
     id: 'cyberattacks-1',
@@ -38,7 +36,6 @@ export const blogPosts: BlogPost[] = [
     author: 'Saiprasanna',
     previewContent: 'An in-depth look at the sophisticated SolarWinds attack, its impact, and the lessons learned for modern cybersecurity.',
     htmlPath: '/posts/cyberattacks/case-study-solarwinds-attack.html',
-    image: '/images/posts/cyberattacks/case-study-solarwinds-attack.png',
   },
   {
     id: 'tools-techniques-1',
@@ -49,7 +46,6 @@ export const blogPosts: BlogPost[] = [
     author: 'Saiprasanna',
     previewContent: 'Get started with Nmap, the powerful network scanning tool, and learn the basics of port scanning for network reconnaissance.',
     htmlPath: '/posts/tools-techniques/introduction-to-nmap.html',
-    image: '/images/posts/tools-techniques/introduction-to-nmap.png',
   },
   {
     id: 'news-journey-1',
@@ -60,7 +56,6 @@ export const blogPosts: BlogPost[] = [
     author: 'Saiprasanna',
     previewContent: 'Recounting my exciting journey through my first Capture The Flag (CTF) competition and the valuable insights gained.',
     htmlPath: '/posts/news-journey/my-first-ctf-experience.html',
-    image: '/images/posts/news-journey/my-first-ctf-experience.png',
   },
 ];
 
