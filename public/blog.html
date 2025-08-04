@@ -51,44 +51,35 @@
         const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRhanJ5dWZpeHVubm5rZnVjZ2NlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQyNjA2NzAsImV4cCI6MjA2OTgzNjY3MH0.xWeWh3srrDFKLVeP9XHaGpPCcenl7TWQT2-nE8UAp90';
         const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-        const blogContainer = document.getElementById('blog-container');
-
         async function loadBlog() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const blogId = urlParams.get('id');
+          const params = new URLSearchParams(window.location.search);
+          const blogId = params.get("id");
 
-            if (!blogId) {
-                blogContainer.innerHTML = '<p style="color:red;">Error: No blog ID provided.</p><a href="/" class="back-link">Go Home</a>';
-                return;
-            }
+          if (!blogId) {
+            document.getElementById("blog-container").innerHTML = "<p>No blog ID provided.</p>";
+            return;
+          }
 
-            const { data, error } = await supabase
-                .from('Blogs')
-                .select('*')
-                .eq('id', blogId)
-                .single();
+          const { data, error } = await supabase
+            .from('Blogs')
+            .select('*')
+            .eq('id', blogId)
+            .single();
 
-            if (error || !data) {
-                blogContainer.innerHTML = '<p style="color:red;">Error: Could not load the blog post.</p><a href="/" class="back-link">Go Home</a>';
-                console.error('Error fetching blog:', error);
-                return;
-            }
+          if (error) {
+            console.error("Error fetching blog:", error);
+            document.getElementById("blog-container").innerHTML = "<p>Error loading blog.</p>";
+            return;
+          }
 
-            document.title = data.title;
+          document.title = data.title;
 
-            blogContainer.innerHTML = `
-                <a href="/" class="back-link">&larr; Back to Homepage</a>
-                <article>
-                    <header class="mb-8">
-                        <h1 class="text-4xl font-extrabold text-primary mb-3">${data.title}</h1>
-                        <p class="text-muted-foreground">
-                            By ${data.author} on ${new Date(data.date).toLocaleDateString()}
-                        </p>
-                    </header>
-                    ${data.image_url ? `<img src="${data.image_url}" alt="${data.title}" class="w-full h-auto max-h-96 object-cover rounded-lg mb-8">` : ''}
-                    <div class="prose dark:prose-invert max-w-none">${data.content}</div>
-                </article>
-            `;
+          document.getElementById("blog-container").innerHTML = `
+            <h1>${data.title}</h1>
+            <p><strong>Date:</strong> ${data.date} | <strong>Author:</strong> ${data.author} | <strong>Category:</strong> ${data.category}</p>
+            ${data.image_url ? `<img src="${data.image_url}" alt="Blog image" style="max-width:100%; border-radius:8px;">` : ""}
+            <div>${data.content}</div>
+          `;
         }
 
         loadBlog();
