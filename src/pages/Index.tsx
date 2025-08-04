@@ -7,6 +7,37 @@ import { Link } from 'react-router-dom';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const Index = () => {
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-red-50 p-4">
+        <div className="text-center p-8 border-2 border-red-300 rounded-lg bg-white shadow-lg max-w-lg">
+          <h1 className="text-2xl font-bold mb-4 text-red-700">Configuration Error: Supabase Keys Missing</h1>
+          <p className="mb-4 text-gray-700">
+            The application cannot connect to the database because the required Supabase credentials are not set.
+          </p>
+          <p className="mb-2 text-gray-700 font-medium">To fix this, please do the following:</p>
+          <ol className="text-left list-decimal list-inside mb-4 text-gray-600 space-y-2">
+            <li>Create a new file named <code className="bg-red-100 text-red-800 p-1 rounded">.env</code> in the main project folder (the same folder as <code className="bg-gray-200 p-1 rounded">package.json</code>).</li>
+            <li>Add the following content to the <code className="bg-red-100 text-red-800 p-1 rounded">.env</code> file:</li>
+          </ol>
+          <pre className="bg-gray-100 p-4 rounded text-left text-sm text-gray-700 mb-4 overflow-x-auto">
+            <code className="whitespace-pre-wrap break-words">
+              VITE_SUPABASE_URL=https://dajryufixunnnkfucgce.supabase.co
+              <br />
+              VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRhanJ5dWZpeHVubm5rZnVjZ2NlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQyNjA2NzAsImV4cCI6MjA2OTgzNjY3MH0.xWeWh3srrDFKLVeP9XHaGpPCcenl7TWQT2-nE8UAp90
+            </code>
+          </pre>
+          <p className="text-gray-700">
+            After creating and saving the file, click the <strong className="text-red-700">Rebuild</strong> button above the chat to apply the changes.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const categories = [
     { id: 'soc-analyst', title: 'SOC Analyst Insights & Labs', image: '/images/soc-analyst-insights-labs.png' },
     { id: 'cyberattacks', title: 'Real-World Cyberattacks & Case Studies', image: '/images/real-world-cyberattacks.png' },
