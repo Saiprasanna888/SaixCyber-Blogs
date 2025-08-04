@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BlogPost, categoryMap } from '@/data/blogService';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -21,9 +22,9 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
       </CardHeader>
       <CardContent className="flex flex-col flex-grow">
         <p className="text-base text-foreground mb-4 line-clamp-3">{post.previewContent}</p>
-        <a href={`/blog.html?id=${post.id}`} className="text-blue-600 hover:underline font-medium mt-auto">
+        <Link to={`/posts/${post.id}`} className="text-blue-600 hover:underline font-medium mt-auto">
           Read More &rarr;
-        </a>
+        </Link>
       </CardContent>
     </Card>
   );
