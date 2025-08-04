@@ -46,7 +46,7 @@ const Navbar = () => {
   return (
     <nav className="bg-primary text-primary-foreground p-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl sm:text-2xl font-bold">SaixCyber Blogs</Link>
+        <Link to="/" className="text-xl sm:text-2xl font-bold">Cyber Defenders' Hub</Link>
         
         <div className="flex items-center space-x-2 sm:space-x-4">
             <div className="hidden md:flex space-x-6 items-center">
