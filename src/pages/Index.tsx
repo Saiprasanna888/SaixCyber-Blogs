@@ -24,9 +24,9 @@ const Index = () => {
         >
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
-            <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">CYBER DEFENDERS' HUB</h1>
+            <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">SaixCyber-Blogs</h1>
             <p className="text-lg sm:text-xl max-w-2xl mx-auto drop-shadow-md">
-              Insights for SOC Analysts & Security Professionals
+              Your Hub for SOC Analyst Insights & Security Professionals
             </p>
             <a href="#recent-blogs" className="mt-8 px-6 py-3 sm:px-8 bg-lime-400 text-black font-bold rounded-md hover:bg-lime-500 transition-colors duration-300">
               Explore Articles
