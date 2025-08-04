@@ -2,8 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import BlogPostCard from '../components/BlogPostCard';
-import { getPostsByCategory } from '../services/blogService';
-import { BlogPost, categoryMap } from '../types/blog';
+import { getPostsByCategory, BlogPost, categoryMap } from '../data/blogService';
 import { useEffect, useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -17,9 +16,9 @@ const categoryBanners: Record<string, string> = {
 const CategoryPage = () => {
   const { category: categorySlug } = useParams<{ category: string }>();
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
   const [categoryTitle, setCategoryTitle] = useState<string>('');
   const [bannerImage, setBannerImage] = useState<string>('/placeholder.svg');
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -27,8 +26,8 @@ const CategoryPage = () => {
         setLoading(true);
         setCategoryTitle(categoryMap[categorySlug]);
         setBannerImage(categoryBanners[categorySlug] || '/placeholder.svg');
-        const postsData = await getPostsByCategory(categorySlug);
-        setPosts(postsData);
+        const fetchedPosts = await getPostsByCategory(categorySlug);
+        setPosts(fetchedPosts);
         setLoading(false);
       } else {
         setCategoryTitle('Category Not Found');
@@ -56,13 +55,13 @@ const CategoryPage = () => {
         <div className="container mx-auto px-4 pb-8">
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="w-full max-w-sm mx-auto flex flex-col gap-2 p-4 border rounded-lg">
-                  <Skeleton className="h-4 w-1/3 mb-2" />
-                  <Skeleton className="h-6 w-full mb-1" />
-                  <Skeleton className="h-4 w-1/2 mb-4" />
-                  <Skeleton className="h-16 w-full mb-4" />
-                  <Skeleton className="h-5 w-1/4" />
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="w-full max-w-sm mx-auto flex flex-col gap-2">
+                  <Skeleton className="h-32 w-full" />
+                  <Skeleton className="h-4 w-1/4" />
+                  <Skeleton className="h-6 w-full" />
+                  <Skeleton className="h-4 w-1/2" />
+                  <Skeleton className="h-10 w-full" />
                 </div>
               ))}
             </div>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: The SolarWinds Supply Chain Attack</title>
+    <link rel="stylesheet" href="/src/globals.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: hsl(var(--card));
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid hsl(var(--border));
+        }
+        h1 {
+            color: hsl(var(--primary));
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            color: hsl(var(--primary));
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 2rem;
+            border-bottom: 1px solid hsl(var(--border));
+            padding-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: hsl(var(--primary));
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to Homepage</a>
+        <h1>Case Study: The SolarWinds Supply Chain Attack</h1>
+        <div class="meta">
+            By Saiprasanna on 2023-09-15
+        </div>
+        <p>
+            The SolarWinds supply chain attack, discovered in December 2020, sent shockwaves through the cybersecurity world. This sophisticated operation compromised thousands of organizations globally, including U.S. government agencies and Fortune 500 companies.
+        </p>
+        <h2>How the Attack Unfolded</h2>
+        <p>
+            Attackers, believed to be a state-sponsored group, infiltrated SolarWinds' network and inserted malicious code (dubbed "SUNBURST") into legitimate software updates for their Orion IT monitoring platform. When customers downloaded these updates, they unknowingly installed a backdoor into their own networks.
+        </p>
+        <h2>Impact and Lessons Learned</h2>
+        <p>
+            The breach allowed attackers to gain deep access to victim networks, enabling espionage and data exfiltration. Key takeaways from this incident include:
+        </p>
+        <ul>
+            <li><strong>Supply Chain Vulnerabilities:</strong> The attack highlighted the critical risk posed by third-party software.</li>
+            <li><strong>Advanced Persistent Threats (APTs):</strong> It demonstrated the patience and sophistication of state-sponsored actors.</li>
+            <li><strong>Detection Challenges:</strong> The stealthy nature of the attack made it incredibly difficult to detect.</li>
+        </ul>
+        <p>
+            The SolarWinds attack serves as a stark reminder that even trusted software can become a vector for compromise, emphasizing the need for robust supply chain security and continuous monitoring.
+        </p>
+    </div>
+</body>
+</html>
