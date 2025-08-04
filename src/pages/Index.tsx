@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogPostCard from '@/components/BlogPostCard';
-import { getLatestPostByCategory, getAllPosts, BlogPost } from '@/data/blogPosts';
+import { getAllPosts, getLatestPostByCategory, BlogPost } from '@/data/blogService';
 import { Link } from 'react-router-dom';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const Index = () => {
   const categories = [
@@ -12,7 +14,27 @@ const Index = () => {
     { id: 'news-journey', title: 'Cybersecurity News & My Journey', image: '/images/cybersecurity-news-journey.png' },
   ];
 
-  const recentPosts = getAllPosts().slice(0, 3);
+  const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
+  const [latestCategoryPosts, setLatestCategoryPosts] = useState<Record<string, BlogPost | null>>({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      const allPosts = await getAllPosts();
+      setRecentPosts(allPosts.slice(0, 3));
+
+      const latestPosts: Record<string, BlogPost | null> = {};
+      for (const category of categories) {
+        const latestPost = await getLatestPostByCategory(category.id);
+        latestPosts[category.id] = latestPost;
+      }
+      setLatestCategoryPosts(latestPosts);
+
+      setLoading(false);
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -36,18 +58,32 @@ const Index = () => {
 
         <section id="recent-blogs" className="mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">Recent Blogs</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentPosts.map((post) => (
-              <BlogPostCard key={post.id} post={post} />
-            ))}
-          </div>
+          {loading ? (
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <div key={i} className="w-full max-w-sm mx-auto flex flex-col gap-2">
+                    <Skeleton className="h-32 w-full" />
+                    <Skeleton className="h-4 w-1/4" />
+                    <Skeleton className="h-6 w-full" />
+                    <Skeleton className="h-4 w-1/2" />
+                    <Skeleton className="h-10 w-full" />
+                  </div>
+                ))}
+             </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {recentPosts.map((post) => (
+                <BlogPostCard key={post.id} post={post} />
+              ))}
+            </div>
+          )}
         </section>
 
         <section id="categories-section" className="py-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">Explore by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {categories.map((category) => {
-              const latestPost = getLatestPostByCategory(category.id as BlogPost['category']);
+              const latestPost = latestCategoryPosts[category.id];
               return (
                 <Link to={`/${category.id}`} key={category.id} className="group block bg-card rounded-lg shadow-md border border-border overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="overflow-hidden">
@@ -60,7 +96,14 @@ const Index = () => {
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 text-center">{category.title}</h3>
-                    {latestPost ? (
+                    {loading ? (
+                       <div className="w-full max-w-sm mx-auto flex flex-col gap-2">
+                          <Skeleton className="h-4 w-1/4 mx-auto mb-4" />
+                          <Skeleton className="h-32 w-full" />
+                          <Skeleton className="h-4 w-1/4" />
+                          <Skeleton className="h-6 w-full" />
+                       </div>
+                    ) : latestPost ? (
                       <div>
                         <p className="text-center text-sm text-muted-foreground mb-4">Latest Post:</p>
                         <BlogPostCard post={latestPost} />

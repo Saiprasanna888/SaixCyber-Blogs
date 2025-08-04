@@ -2,8 +2,9 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import BlogPostCard from '../components/BlogPostCard';
-import { getPostsByCategory, BlogPost, categoryMap } from '../data/blogPosts';
+import { getPostsByCategory, BlogPost, categoryMap } from '../data/blogService';
 import { useEffect, useState } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const categoryBanners: Record<string, string> = {
   'soc-analyst': '/images/soc-analyst-insights-labs.png',
@@ -15,19 +16,26 @@ const categoryBanners: Record<string, string> = {
 const CategoryPage = () => {
   const { category: categorySlug } = useParams<{ category: string }>();
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
   const [categoryTitle, setCategoryTitle] = useState<string>('');
   const [bannerImage, setBannerImage] = useState<string>('/placeholder.svg');
 
   useEffect(() => {
-    if (categorySlug && categoryMap[categorySlug]) {
-      const categoryTyped = categorySlug as BlogPost['category'];
-      setPosts(getPostsByCategory(categoryTyped));
-      setCategoryTitle(categoryMap[categorySlug]);
-      setBannerImage(categoryBanners[categorySlug] || '/placeholder.svg');
-    } else {
-      setCategoryTitle('Category Not Found');
-      setPosts([]);
-    }
+    const fetchPosts = async () => {
+      if (categorySlug && categoryMap[categorySlug]) {
+        setLoading(true);
+        setCategoryTitle(categoryMap[categorySlug]);
+        setBannerImage(categoryBanners[categorySlug] || '/placeholder.svg');
+        const fetchedPosts = await getPostsByCategory(categorySlug);
+        setPosts(fetchedPosts);
+        setLoading(false);
+      } else {
+        setCategoryTitle('Category Not Found');
+        setPosts([]);
+        setLoading(false);
+      }
+    };
+    fetchPosts();
   }, [categorySlug]);
 
   return (
@@ -45,7 +53,19 @@ const CategoryPage = () => {
         </section>
         
         <div className="container mx-auto px-4 pb-8">
-          {posts.length > 0 ? (
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="w-full max-w-sm mx-auto flex flex-col gap-2">
+                  <Skeleton className="h-32 w-full" />
+                  <Skeleton className="h-4 w-1/4" />
+                  <Skeleton className="h-6 w-full" />
+                  <Skeleton className="h-4 w-1/2" />
+                  <Skeleton className="h-10 w-full" />
+                </div>
+              ))}
+            </div>
+          ) : posts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {posts.map(post => (
                 <BlogPostCard key={post.id} post={post} />
