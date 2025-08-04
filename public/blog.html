@@ -53,6 +53,10 @@
         .eq("id", blogId)
         .single();
 
+      console.log("Blog ID requested:", blogId);
+      console.log("Data returned:", data);
+      console.log("Error (if any):", error);
+
       if (error) {
         console.error("Error fetching blog:", error);
         document.getElementById("blog-container").innerHTML = "<p>⚠️ Error loading blog.</p>";
