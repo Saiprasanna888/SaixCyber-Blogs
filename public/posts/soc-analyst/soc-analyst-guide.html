@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC Analyst Guide — Understanding SOC, SIEM, EDR, and Frameworks 🛡️</title>
+    <link rel="stylesheet" href="/src/globals.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: hsl(var(--card));
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid hsl(var(--border));
+        }
+        h1 {
+            color: hsl(var(--primary));
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            color: hsl(var(--primary));
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-top: 1px solid hsl(var(--border));
+            padding-top: 1.5rem;
+        }
+        h3 {
+            color: hsl(var(--primary));
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 1rem;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 2rem;
+            border-bottom: 1px solid hsl(var(--border));
+            padding-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: hsl(var(--primary));
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .caption {
+            font-size: 0.8rem;
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .small-img {
+            max-width: 500px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to Homepage</a>
+        <h1>SOC Analyst Guide — Understanding SOC, SIEM, EDR, and Frameworks 🛡️</h1>
+        <div class="meta">
+            By Saiprasanna on 2025-08-03
+        </div>
+        
+        <h3>Introduction</h3>
+        <p>
+            In today's digital world, cyber threats are constantly evolving. Organizations need a dedicated team to defend against these attacks 24/7. This is where the Security Operations Center (SOC) comes in. For anyone aspiring to become a SOC Analyst, understanding its core components is the first step. This guide will break down everything you need to know about SOC, SIEM, EDR, and the frameworks that govern them.
+        </p>
+
+        <h2>What is a SOC?</h2>
+        <p>
+            A Security Operations Center (SOC) is a centralized unit that deals with security issues on an organizational and technical level. It's a team of cybersecurity professionals who continuously monitor and analyze an organization's security posture to detect, analyze, and respond to cybersecurity incidents.
+        </p>
+        <img src="/images/soc-analyst-guide.jpg" alt="SOC Analyst monitoring multiple screens" class="small-img">
+        <p class="caption">Figure 1: A SOC is the command center for cybersecurity operations.</p>
+        
+        <h3>Key Functions of a SOC:</h3>
+        <ul>
+            <li><strong>Monitoring & Detection:</strong> Continuously watching networks, servers, and endpoints for signs of a breach.</li>
+            <li><strong>Incident Response:</strong> Taking immediate action to contain and eradicate threats once they are detected.</li>
+            <li><strong>Threat Intelligence:</strong> Proactively gathering information about new and emerging threats to prepare defenses.</li>
+            <li><strong>Compliance Management:</strong> Ensuring the organization adheres to security regulations and standards.</li>
+        </ul>
+
+        <h2>Why Do Organizations Need a SOC?</h2>
+        <p>A SOC is no longer a luxury but a necessity. Here’s why:</p>
+        <ul>
+            <li><strong>24/7 Protection:</strong> Cyberattacks can happen at any time. A SOC provides round-the-clock monitoring.</li>
+            <li><strong>Faster Threat Detection:</strong> A dedicated team can identify and respond to threats much faster than an ad-hoc approach.</li>
+            <li><strong>Centralized Security:</strong> It consolidates security tools, data, and expertise into one place for better visibility and control.</li>
+            <li><strong>Reduced Costs:</strong> By preventing breaches, a SOC can save an organization millions in potential damages, fines, and reputational harm.</li>
+        </ul>
+
+        <h2>SIEM: The Brain of the SOC</h2>
+        <p>
+            Security Information and Event Management (SIEM) is a software solution that aggregates and analyzes activity from many different resources across your entire IT infrastructure. It collects security data from network devices, servers, domain controllers, and more into a single centralized platform.
+        </p>
+        <p>
+            Think of it as the central nervous system for a SOC analyst. It correlates events, detects anomalies, and generates alerts for potential security incidents.
+        </p>
+        <p><strong>Examples of SIEM tools:</strong> Splunk, IBM QRadar, Microsoft Sentinel, Exabeam.</p>
+
+        <h2>EDR: Protecting Endpoints</h2>
+        <p>
+            Endpoint Detection and Response (EDR) is a cybersecurity solution that continuously monitors and responds to advanced threats on endpoints (like laptops, desktops, and servers). While SIEM provides a broad view of the entire network, EDR provides deep visibility into what's happening on individual devices.
+        </p>
+        <p>
+            EDR tools can detect suspicious file executions, block malicious processes, and isolate compromised endpoints to prevent threats from spreading.
+        </p>
+        <p><strong>Examples of EDR tools:</strong> CrowdStrike Falcon, SentinelOne, Carbon Black, Microsoft Defender for Endpoint.</p>
+
+        <h2>Levels of SOC Analysts</h2>
+        <p>A SOC team is typically structured in tiers:</p>
+        <ul>
+            <li><strong>L1 Analyst (Triage Specialist):</strong> The first line of defense. They monitor alerts, perform initial investigations, and escalate incidents to L2.</li>
+            <li><strong>L2 Analyst (Incident Responder):</strong> Conducts deeper investigations into escalated incidents, analyzes malware, and performs remediation.</li>
+            <li><strong>L3 Analyst (Threat Hunter):</strong> The most senior analysts. They proactively hunt for advanced threats, perform forensic analysis, and improve detection rules.</li>
+            <li><strong>SOC Manager:</strong> Oversees the entire SOC operation, manages the team, and reports to senior management.</li>
+        </ul>
+        <img src="https://source.unsplash.com/600x300/?cybersecurity,framework" alt="Cybersecurity framework diagram" class="small-img">
+        <p class="caption">Figure 2: Frameworks provide a structured approach to cybersecurity.</p>
+
+        <h2>Frameworks That Guide SOC Operations</h2>
+        <p>
+            To ensure consistency and effectiveness, SOCs operate based on established cybersecurity frameworks. These provide a structured approach to managing security.
+        </p>
+        <ul>
+            <li><strong>NIST Cybersecurity Framework:</strong> A popular framework that provides guidelines on how organizations can prevent, detect, and respond to cyberattacks.</li>
+            <li><strong>MITRE ATT&CK®:</strong> A globally-accessible knowledge base of adversary tactics and techniques based on real-world observations. It helps analysts understand how attackers operate.</li>
+            <li><strong>ISO 27001:</strong> An international standard on how to manage information security.</li>
+            <li><strong>SANS Institute:</strong> Provides a wealth of resources, training, and best practices, including the popular "Critical Security Controls."</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            The SOC is the heart of modern cybersecurity defense, and understanding its components like SIEM and EDR is fundamental for any aspiring analyst. By leveraging structured frameworks and a tiered team of experts, organizations can build a formidable defense against cyber threats.
+        </p>
+        <p>
+            Stay tuned for my next posts, where we'll dive into practical SOC labs and learn how to use these tools to hunt for real-world threats!
+        </p>
+    </div>
+</body>
+</html>

@@ -27,6 +27,16 @@ export const blogPosts: BlogPost[] = [
     previewContent: 'Have you ever visited a website that looked exactly like your bank’s site, but something felt off? That could have been a homoglyph attack — a sneaky trick hackers use to fool your eyes.',
     htmlPath: '/posts/cyberattacks/what-is-a-homoglyph-attack.html',
   },
+  {
+    id: 'soc-analyst-1',
+    category: 'soc-analyst',
+    slug: 'soc-analyst-guide',
+    title: "SOC Analyst Guide — Understanding SOC, SIEM, EDR, and Frameworks 🛡️",
+    date: '2025-08-03',
+    author: 'Saiprasanna',
+    previewContent: 'A detailed guide for beginners and aspiring SOC Analysts covering SOC, SIEM, EDR, and the frameworks that govern them.',
+    htmlPath: '/posts/soc-analyst/soc-analyst-guide.html',
+  },
 ];
 
 export const getPostsByCategory = (category: BlogPost['category']) => {
