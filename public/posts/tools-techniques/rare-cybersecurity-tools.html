@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rare Cybersecurity Tools Every SOC Analyst Should Know 🧩</title>
     <link rel="stylesheet" href="/src/globals.css">
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
