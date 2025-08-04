@@ -49,9 +49,9 @@
 
       const { data, error } = await supabaseClient
         .from("Blogs")
-        .select("id, title, date, author, category, content, image_url")
+        .select("*")
         .eq("id", blogId)
-        .maybeSingle();
+        .single();
 
       if (error) {
         console.error("Error fetching blog:", error);
