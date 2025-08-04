@@ -8,10 +8,10 @@ const Footer = () => {
           © {new Date().getFullYear()} CyberSec Blog by Saiprasanna
         </p>
         <div className="flex space-x-4">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener">
+          <a href="https://github.com/Saiprasanna888" target="_blank" rel="noopener noreferrer">
             <Github className="h-6 w-6 hover:text-blue-400" />
           </a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">
+          <a href="https://linkedin.com/in/muppallasaiprasanna" target="_blank" rel="noopener noreferrer">
             <Linkedin className="h-6 w-6 hover:text-blue-400" />
           </a>
         </div>
