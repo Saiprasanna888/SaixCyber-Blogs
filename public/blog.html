@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link href="/src/globals.css" rel="stylesheet">
+    <style>
+        /* Basic styles to ensure readability, as this page is outside the main React app */
+        body {
+            font-family: sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.5rem;
+            background-color: hsl(var(--card));
+        }
+        .prose {
+            line-height: 1.75;
+        }
+        .prose img {
+            border-radius: 0.5rem;
+            max-width: 100%;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="blog-container" class="container">
+        <p>Loading post...</p>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+        // --- Supabase Configuration ---
+        const supabaseUrl = 'https://dajryufixunnnkfucgce.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRhanJ5dWZpeHVubm5rZnVjZ2NlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQyNjA2NzAsImV4cCI6MjA2OTgzNjY3MH0.xWeWh3srrDFKLVeP9XHaGpPCcenl7TWQT2-nE8UAp90';
+        const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+        const blogContainer = document.getElementById('blog-container');
+
+        async function loadBlog() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const blogId = urlParams.get('id');
+
+            if (!blogId) {
+                blogContainer.innerHTML = '<p style="color:red;">Error: No blog ID provided.</p><a href="/" class="back-link">Go Home</a>';
+                return;
+            }
+
+            const { data, error } = await supabase
+                .from('Blogs')
+                .select('*')
+                .eq('id', blogId)
+                .single();
+
+            if (error || !data) {
+                blogContainer.innerHTML = '<p style="color:red;">Error: Could not load the blog post.</p><a href="/" class="back-link">Go Home</a>';
+                console.error('Error fetching blog:', error);
+                return;
+            }
+
+            document.title = data.title;
+
+            blogContainer.innerHTML = `
+                <a href="/" class="back-link">&larr; Back to Homepage</a>
+                <article>
+                    <header class="mb-8">
+                        <h1 class="text-4xl font-extrabold text-primary mb-3">${data.title}</h1>
+                        <p class="text-muted-foreground">
+                            By ${data.author} on ${new Date(data.date).toLocaleDateString()}
+                        </p>
+                    </header>
+                    ${data.image_url ? `<img src="${data.image_url}" alt="${data.title}" class="w-full h-auto max-h-96 object-cover rounded-lg mb-8">` : ''}
+                    <div class="prose dark:prose-invert max-w-none">${data.content}</div>
+                </article>
+            `;
+        }
+
+        loadBlog();
+    </script>
+</body>
+</html>
