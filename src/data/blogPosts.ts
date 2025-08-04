@@ -18,6 +18,16 @@ export const categoryMap: Record<string, string> = {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 'tools-techniques-1',
+    category: 'tools-techniques',
+    slug: 'rare-cybersecurity-tools',
+    title: "Rare Cybersecurity Tools Every SOC Analyst Should Know 🧩",
+    date: '2025-08-04',
+    author: 'Saiprasanna',
+    previewContent: 'Explore rare and underrated cybersecurity tools like TheHive, Velociraptor, and YARA that can give SOC Analysts an edge in defending against modern attacks.',
+    htmlPath: '/posts/tools-techniques/rare-cybersecurity-tools.html',
+  },
+  {
     id: 'soc-analyst-1',
     category: 'soc-analyst',
     slug: 'soc-analyst-guide',

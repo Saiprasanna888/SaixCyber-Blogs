@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rare Cybersecurity Tools Every SOC Analyst Should Know 🧩</title>
+    <link rel="stylesheet" href="/src/globals.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: hsl(var(--card));
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid hsl(var(--border));
+        }
+        h1 {
+            color: hsl(var(--primary));
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            color: hsl(var(--primary));
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-top: 1px solid hsl(var(--border));
+            padding-top: 1.5rem;
+        }
+        h3 {
+            color: hsl(var(--primary));
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 1rem;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 2rem;
+            border-bottom: 1px solid hsl(var(--border));
+            padding-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: hsl(var(--primary));
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .caption {
+            font-size: 0.8rem;
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .small-img {
+            max-width: 600px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to Homepage</a>
+        <h1>Rare Cybersecurity Tools Every SOC Analyst Should Know 🧩</h1>
+        <div class="meta">
+            By Saiprasanna on 2025-08-04
+        </div>
+        
+        <p>
+            Most cybersecurity blogs highlight popular tools like Splunk, Wireshark, or Nessus — but in the real world, SOC Analysts often need more than just the basics. Hidden gems like TheHive, Velociraptor, and YARA provide powerful capabilities that are less known but highly effective in detecting and responding to advanced cyber threats. In this blog, we’ll explore some rare and underrated cybersecurity tools that can give SOC Analysts an edge in defending against modern attacks.
+        </p>
+        <img src="/images/cybersecurity-tools-banner.png" alt="Banner showing logos of TheHive, Velociraptor, and YARA" class="small-img">
+        <p class="caption">Figure 1: A collection of powerful, lesser-known cybersecurity tools.</p>
+
+        <h2>🛡️ TheHive: Incident Response Made Easy</h2>
+        <p>TheHive is an open-source incident response platform designed for collaborative case management.</p>
+        <ul>
+            <li><strong>Use:</strong> Tracks, assigns, and investigates incidents in a SOC team.</li>
+            <li><strong>Why Rare:</strong> Many teams rely on paid IR platforms, but TheHive is a powerful free alternative.</li>
+        </ul>
+
+        <h2>🔍 Velociraptor: Advanced Endpoint Forensics</h2>
+        <p>Velociraptor specializes in endpoint visibility and threat hunting.</p>
+        <ul>
+            <li><strong>Use:</strong> Collects detailed forensic data from compromised endpoints.</li>
+            <li><strong>Why Rare:</strong> Not as well-known as CrowdStrike or SentinelOne, but extremely effective and open-source.</li>
+        </ul>
+
+        <h2>🕵️ YARA: The Malware Hunter’s Swiss Knife</h2>
+        <p>YARA helps analysts identify and classify malware families.</p>
+        <ul>
+            <li><strong>Use:</strong> Create custom rules to scan files and processes for malicious patterns.</li>
+            <li><strong>Why Rare:</strong> Mostly used in malware research labs, less in day-to-day SOC operations.</li>
+        </ul>
+
+        <h2>🌐 DNSTwist: Catching Phishing Domains</h2>
+        <p>DNSTwist detects lookalike or typo-squatted domains used in phishing.</p>
+        <ul>
+            <li><strong>Use:</strong> Identifies dangerous domains like facebοok.com that trick users.</li>
+            <li><strong>Why Rare:</strong> Often overlooked, yet crucial for defending against phishing campaigns.</li>
+        </ul>
+
+        <h2>💻 OSQuery: SQL for Your Endpoints</h2>
+        <p>OSQuery turns system data into SQL-like queries.</p>
+        <ul>
+            <li><strong>Use:</strong> Query processes, services, and user activity across endpoints.</li>
+            <li><strong>Why Rare:</strong> Lightweight and open-source, but overshadowed by commercial EDR tools.</li>
+        </ul>
+        <img src="/images/soc-analyst-at-desk.png" alt="SOC Analyst working at a multi-monitor setup" class="small-img">
+        <p class="caption">Figure 2: Combining common and rare tools gives analysts a comprehensive view.</p>
+
+        <h2>🧪 Cuckoo Sandbox: Malware Behavior Analysis</h2>
+        <p>Cuckoo Sandbox is an automated malware analysis tool.</p>
+        <ul>
+            <li><strong>Use:</strong> Runs suspicious files in a virtual machine and observes behavior.</li>
+            <li><strong>Why Rare:</strong> Requires technical setup, so beginners often avoid it.</li>
+        </ul>
+
+        <h2>🔗 Maltego: OSINT & Link Analysis</h2>
+        <p>Maltego provides visual link analysis for investigating cybercrime connections.</p>
+        <ul>
+            <li><strong>Use:</strong> Map relationships between domains, IPs, emails, and people.</li>
+            <li><strong>Why Rare:</strong> Known in OSINT circles, but underused in SOC environments.</li>
+        </ul>
+
+        <h2>🗂️ MISP: Threat Intelligence Sharing</h2>
+        <p>MISP is an open-source threat intelligence platform.</p>
+        <ul>
+            <li><strong>Use:</strong> Share Indicators of Compromise (IOCs) across SOC teams and organizations.</li>
+            <li><strong>Why Rare:</strong> Used mainly by advanced teams; newcomers often miss its value.</li>
+        </ul>
+
+        <h2>✅ How These Tools Complement Common SOC Tools</h2>
+        <p>While SIEM and EDR platforms form the backbone of most SOCs, these rare tools fill critical gaps:</p>
+        <ul>
+            <li>TheHive + Cortex → Streamlined incident response</li>
+            <li>Velociraptor + OSQuery → Deep endpoint visibility</li>
+            <li>DNSTwist + YARA → Early phishing and malware detection</li>
+            <li>MISP + Maltego → Intelligence-driven defense</li>
+        </ul>
+        <p>Together, they provide a layered defense that goes beyond standard log analysis.</p>
+
+        <h2>Conclusion</h2>
+        <p>
+            In the fight against modern cyber threats, rare tools can often make the biggest difference. By mastering platforms like Velociraptor, YARA, and TheHive, SOC Analysts can stay one step ahead of attackers.
+        </p>
+        <p>
+            ⚡ <strong>Pro Tip:</strong> Start experimenting with these tools in a home lab setup — you’ll not only gain hands-on skills but also stand out in SOC interviews and projects.
+        </p>
+    </div>
+</body>
+</html>
