@@ -49,13 +49,18 @@
 
       const { data, error } = await supabaseClient
         .from("Blogs")
-        .select("*")
+        .select("id, title, date, author, category, content, image_url")
         .eq("id", blogId)
-        .single();
+        .maybeSingle();
 
       if (error) {
         console.error("Error fetching blog:", error);
         document.getElementById("blog-container").innerHTML = "<p>⚠️ Error loading blog.</p>";
+        return;
+      }
+
+      if (!data) {
+        document.getElementById("blog-container").innerHTML = "<p>Blog post not found.</p>";
         return;
       }
 
