@@ -18,6 +18,16 @@ export const categoryMap: Record<string, string> = {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 'news-journey-1',
+    category: 'news-journey',
+    slug: 'ransomhub-letsdefend-homelab',
+    title: "RansomHub Ransomware: What I Learned from LetsDefend Labs & My Home Lab Projects 🧠",
+    date: '2025-08-04',
+    author: 'Saiprasanna',
+    previewContent: 'A deep dive into the RansomHub ransomware group, connecting threat intelligence with hands-on practice from LetsDefend and home lab projects.',
+    htmlPath: '/posts/news-journey/ransomhub-letsdefend-homelab.html',
+  },
+  {
     id: 'tools-techniques-1',
     category: 'tools-techniques',
     slug: 'rare-cybersecurity-tools',

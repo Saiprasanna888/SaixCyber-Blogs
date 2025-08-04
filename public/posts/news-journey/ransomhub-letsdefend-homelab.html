@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RansomHub Ransomware: What I Learned from LetsDefend Labs & My Home Lab Projects 🧠</title>
+    <link rel="stylesheet" href="/src/globals.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: hsl(var(--card));
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid hsl(var(--border));
+        }
+        h1 {
+            color: hsl(var(--primary));
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            color: hsl(var(--primary));
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-top: 1px solid hsl(var(--border));
+            padding-top: 1.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 1rem;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 2rem;
+            border-bottom: 1px solid hsl(var(--border));
+            padding-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: hsl(var(--primary));
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .caption {
+            font-size: 0.8rem;
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .small-img {
+            max-width: 600px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to Homepage</a>
+        <h1>RansomHub Ransomware: What I Learned from LetsDefend Labs & My Home Lab Projects 🧠</h1>
+        <div class="meta">
+            By Saiprasanna on 2025-08-04
+        </div>
+        
+        <p>
+            In the fast-moving world of cybersecurity, staying updated with the latest threats isn’t optional — it’s survival. As part of my LetsDefend SOC Analyst learning path and my own home lab projects, I make it a habit to explore real-world cyberattacks and connect them with hands-on practice.
+        </p>
+        <p>
+            This week, I studied a rising ransomware group called RansomHub — and it helped me see how threat intelligence and SIEM alerts play a vital role in defending organizations.
+        </p>
+        <img src="/images/ransomhub-news.jpeg" alt="Security News Graphic" class="small-img">
+
+        <h2>📰 The News: RansomHub — A New Ransomware-as-a-Service Threat</h2>
+        <p>
+            In July 2025, security researchers flagged RansomHub, a new ransomware-as-a-service (RaaS) group targeting finance and healthcare sectors. What makes RansomHub different?
+        </p>
+        <ul>
+            <li>Reuses leaked code from older groups like ALPHV (BlackCat)</li>
+            <li>Targets both Windows and Linux systems</li>
+            <li>Uses double extortion tactics — encrypting data while threatening to leak it</li>
+        </ul>
+        <p>A recent attack on a US-based medical billing firm led to leaked patient records and system outages.</p>
+
+        <h2>🔍 What It Means for SOC Teams</h2>
+        <p>RansomHub highlights how fast attackers adapt by recycling tools and tactics. For SOC teams, this means:</p>
+        <ul>
+            <li>Proactive threat hunting is critical, not just waiting for alerts</li>
+            <li>Cross-platform visibility (Windows + Linux) is non-negotiable</li>
+            <li>Threat intel enrichment in SIEMs can reveal early signs of compromise</li>
+        </ul>
+
+        <h2>💻 My Journey: Hands-On with LetsDefend & Home Lab</h2>
+        <p>Instead of just reading about attacks, I recreated detection workflows through:</p>
+        
+        <h3>🔹 LetsDefend SOC Labs</h3>
+        <ul>
+            <li>Worked on ransomware detection labs</li>
+            <li>Investigated suspicious logs and correlated with IOCs</li>
+            <li>Practiced drafting incident response reports</li>
+        </ul>
+        
+        <h3>🔹 My Home Lab Setup</h3>
+        <ul>
+            <li>Suricata IDS on Ubuntu Server for traffic monitoring</li>
+            <li>ELK Stack (Elasticsearch, Logstash, Kibana) for log analysis</li>
+            <li>Simulated brute-force and ransomware-like file transfer scenarios</li>
+            <li>Visualized alerts in Kibana dashboards</li>
+        </ul>
+        <img src="/images/home-lab-diagram.png" alt="Home lab architecture diagram" style="max-width:100%; border-radius:8px;">
+        <p class="caption">Figure 1: My home lab architecture for simulating and monitoring attacks.</p>
+
+        <h2>🧠 Key Lessons Learned</h2>
+        <ul>
+            <li>Mapping RansomHub’s behavior to the MITRE ATT&CK framework improved my detection logic</li>
+            <li>LetsDefend’s guided labs helped me practice triaging ransomware alerts like in a real SOC</li>
+            <li>My home lab experiments gave me confidence in correlating Suricata IDS data with SIEM dashboards</li>
+        </ul>
+
+        <h2>✅ Takeaways</h2>
+        <ul>
+            <li>RansomHub proves attackers don’t always build new malware — they reuse old ones</li>
+            <li>Combining threat intelligence with SIEM correlation is key for early detection</li>
+            <li>Hands-on practice (LetsDefend + home lab) turns theory into practical SOC skills</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            Whether it’s analyzing ransomware on LetsDefend or replicating attack traffic in a home lab, real-world practice is the best teacher. Threats like RansomHub remind us that proactive detection and continuous learning are essential for SOC Analysts.
+        </p>
+        <p>
+            🔔 Stay tuned for my next blog, where I’ll share how I analyzed phishing emails using email header forensics and SIEM rules!
+        </p>
+    </div>
+</body>
+</html>
