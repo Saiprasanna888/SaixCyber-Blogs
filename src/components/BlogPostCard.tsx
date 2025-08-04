@@ -1,14 +1,16 @@
 import React from 'react';
-import { BlogPost, categoryMap } from '@/data/blogPosts';
+import { BlogPost, categoryMap } from '@/types/blog';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 
 interface BlogPostCardProps {
   post: BlogPost;
 }
 
 const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
-  const categoryName = categoryMap[post.category] || 'Uncategorized';
+  const categoryName = post.category ? categoryMap[post.category] : 'Uncategorized';
+  const previewContent = post.content ? post.content.substring(0, 120) + '...' : 'No preview available.';
 
   return (
     <Card className="w-full max-w-sm mx-auto hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
@@ -20,10 +22,10 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col flex-grow">
-        <p className="text-base text-foreground mb-4 line-clamp-3">{post.previewContent}</p>
-        <a href={post.htmlPath} className="text-blue-600 hover:underline font-medium mt-auto">
+        <p className="text-base text-foreground mb-4 line-clamp-3">{previewContent}</p>
+        <Link to={`/post/${post.id}`} className="text-blue-600 hover:underline font-medium mt-auto">
           Read More &rarr;
-        </a>
+        </Link>
       </CardContent>
     </Card>
   );
