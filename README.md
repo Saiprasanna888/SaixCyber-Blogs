@@ -6,7 +6,7 @@ This site is dedicated to sharing insights, tutorials, tools, and real-world cas
 ---
 
 ## 🚀 Live Demo  
-🔗 [Visit the Blog](https://saixcyber-blogs888-5m8k2minx-saiparasannas-projects.vercel.app)  
+🔗 [Visit the Blog](https://saixcyber-blogs888-lnbxkbqcl-saiparasannas-projects.vercel.app/)  
 
 ---
 
