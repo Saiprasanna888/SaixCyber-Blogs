@@ -18,6 +18,16 @@ export const categoryMap: Record<string, string> = {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 'tools-techniques-2',
+    category: 'tools-techniques',
+    slug: 'fofa-cybersecurity-search-engine',
+    title: 'FOFA – The Cybersecurity Search Engine That Sees Everything 🔍',
+    date: '2025-08-10',
+    author: 'Saiprasanna',
+    previewContent: 'Ever wondered how cybersecurity experts find hidden devices, servers, and websites across the entire internet? They often use a powerful tool called FOFA (Fingerprint of All).',
+    htmlPath: '/posts/tools-techniques/fofa-cybersecurity-search-engine.html',
+  },
+  {
     id: 'news-journey-1',
     category: 'news-journey',
     slug: 'ransomhub-letsdefend-homelab',

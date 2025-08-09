@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOFA – The Cybersecurity Search Engine That Sees Everything 🔍</title>
+    <link rel="stylesheet" href="/src/globals.css">
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: hsl(var(--card));
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid hsl(var(--border));
+        }
+        h1 {
+            color: hsl(var(--primary));
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            color: hsl(var(--primary));
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-top: 1px solid hsl(var(--border));
+            padding-top: 1.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        th, td {
+            border: 1px solid hsl(var(--border));
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: hsl(var(--secondary));
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 2rem;
+            border-bottom: 1px solid hsl(var(--border));
+            padding-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: hsl(var(--primary));
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .caption {
+            font-size: 0.8rem;
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        code {
+            background-color: hsl(var(--secondary));
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            color: hsl(var(--secondary-foreground));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to Homepage</a>
+        <h1>FOFA – The Cybersecurity Search Engine That Sees Everything 🔍</h1>
+        <div class="meta">
+            By Saiprasanna on 10 August 2025
+        </div>
+        
+        <p>
+            Ever wondered how cybersecurity experts find hidden devices, servers, and websites across the entire internet?
+            They often use a powerful tool called FOFA (Fingerprint of All) — a search engine built specifically for discovering internet-connected assets.
+            In this blog, we’ll explore what FOFA is, how it works, and why it’s an essential tool for SOC Analysts, penetration testers, and ethical hackers.
+        </p>
+
+        <img src="/images/og-fofa.png" alt="FOFA Search Engine Example" style="max-width:100%; border-radius:8px;">
+        <p class="caption">Figure 1: FOFA lets you search the internet for exposed systems and devices.</p>
+
+        <h2>🛡️ What is FOFA?</h2>
+        <p>
+            FOFA is like Google for cybersecurity. Instead of searching for news or videos, FOFA searches for:
+        </p>
+        <ul>
+            <li>Websites</li>
+            <li>Servers</li>
+            <li>IoT devices</li>
+            <li>Databases</li>
+            <li>Email services</li>
+        </ul>
+        <p>
+            It collects and organizes information from across the internet, helping security professionals discover what’s online — including assets that may be vulnerable to attacks.
+        </p>
+        <p><strong>Example:</strong></p>
+        <ul>
+            <li>Search: <code>app="Apache"</code> → Finds all sites using Apache web server.</li>
+            <li>Search: <code>country="IN"</code> → Finds internet devices located in India.</li>
+        </ul>
+
+        <h2>🔍 How Cybersecurity Experts Use FOFA</h2>
+        <p>FOFA is used for many purposes, such as:</p>
+        <ul>
+            <li><strong>Asset Discovery:</strong> Find all servers and domains belonging to an organization.</li>
+            <li><strong>Technology Fingerprinting:</strong> Identify what software a system is running.</li>
+            <li><strong>Vulnerability Hunting:</strong> Search for outdated or misconfigured systems.</li>
+            <li><strong>Threat Intelligence:</strong> Monitor exposure and detect suspicious changes over time.</li>
+        </ul>
+        <p><strong>Real-Life Use Case:</strong><br>
+            A SOC Analyst can search for exposed databases in their company’s IP range to spot misconfigurations before attackers do.
+        </p>
+
+        <h2>🏷️ Example FOFA Searches</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Purpose</th>
+                    <th>FOFA Query</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Find Apache servers</td>
+                    <td><code>app="Apache"</code></td>
+                    <td>Websites using Apache server</td>
+                </tr>
+                <tr>
+                    <td>Find login pages</td>
+                    <td><code>title="Login"</code></td>
+                    <td>Pages with “Login” in the title</td>
+                </tr>
+                <tr>
+                    <td>Indian IPs</td>
+                    <td><code>country="IN"</code></td>
+                    <td>Devices in India</td>
+                </tr>
+                <tr>
+                    <td>WordPress sites</td>
+                    <td><code>app="WordPress"</code></td>
+                    <td>Websites made with WordPress</td>
+                </tr>
+                <tr>
+                    <td>Company assets</td>
+                    <td><code>domain="example.com"</code></td>
+                    <td>All systems of that company</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>✅ How SOC Analysts Work With FOFA</h2>
+        <p>SOC Analysts use FOFA as part of their daily workflow:</p>
+        <ul>
+            <li>Setting up alerts for new exposures in their organization.</li>
+            <li>Investigating suspicious IP addresses or domains.</li>
+            <li>Cross-checking data with SIEM alerts for potential threats.</li>
+            <li>Assisting in incident response by mapping out the attacker’s possible targets.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            FOFA proves that the internet is far more connected than most people realize — and that many systems are unintentionally exposed.
+            By using FOFA, SOC Analysts can proactively detect vulnerabilities, monitor online assets, and strengthen an organization’s security posture.
+        </p>
+        <p>
+            In my next blog, I’ll dive into another powerful tool that complements FOFA and helps detect cyber threats even faster.
+        </p>
+    </div>
+</body>
+</html>
