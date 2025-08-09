@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Awareness: That “.pdf” File Might Not Be Safe at All! 📎</title>
+    <link rel="stylesheet" href="/src/globals.css">
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: hsl(var(--card));
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid hsl(var(--border));
+        }
+        h1 {
+            color: hsl(var(--primary));
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            color: hsl(var(--primary));
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-top: 1px solid hsl(var(--border));
+            padding-top: 1.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 1rem;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 2rem;
+            border-bottom: 1px solid hsl(var(--border));
+            padding-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: hsl(var(--primary));
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .caption {
+            font-size: 0.8rem;
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        code {
+            background-color: hsl(var(--secondary));
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            color: hsl(var(--secondary-foreground));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to Homepage</a>
+        <h1>Cybersecurity Awareness: That “.pdf” File Might Not Be Safe at All! 📎</h1>
+        <div class="meta">
+            By Saiprasanna on 10 August 2025
+        </div>
+        
+        <p>
+            Have you ever opened a file thinking it was just a harmless PDF, but later your computer started acting strange?
+            You might have fallen for a Double File Extension Spoofing trick — a simple but dangerous method hackers use to hide malicious files behind fake extensions.
+            In this blog, we’ll uncover how this attack works, why it’s effective, and how SOC Analysts and everyday users can stay protected.
+        </p>
+
+        <h2>🛡️ What is Double File Extension Spoofing?</h2>
+        <p>
+            Double file extension spoofing is a technique where a malicious file is named with two extensions — one safe-looking, and one dangerous.
+        </p>
+        <p><strong>Example:</strong></p>
+        <ul>
+            <li><code>Invoice.pdf.exe</code> (real type: executable program)</li>
+            <li><code>Resume.docx.scr</code> (real type: screensaver file — can run code)</li>
+        </ul>
+        <p>
+            On many systems, file extensions are hidden by default. This means:
+            <code>Invoice.pdf.exe</code> may appear simply as <code>Invoice.pdf</code>.
+            The user thinks it’s a safe document, but it’s actually malware.
+        </p>
+
+        <h2>🔍 How Hackers Use This Trick</h2>
+        <p>Attackers often send double-extension files through:</p>
+        <ul>
+            <li>Phishing emails with “important” attachments.</li>
+            <li>Instant messaging apps (WhatsApp, Skype, Teams, Slack).</li>
+            <li>Malicious downloads from compromised websites.</li>
+        </ul>
+        <p>Once the victim clicks the file:</p>
+        <ul>
+            <li>Malware gets installed.</li>
+            <li>The attacker may gain remote access.</li>
+            <li>Data can be stolen or encrypted (ransomware).</li>
+        </ul>
+
+        <h2>🏷️ Real-World Example</h2>
+        <p>
+            In 2020, a phishing campaign targeted corporate employees with fake “Covid-19 Safety Guidelines.pdf.exe” files.
+            Victims who opened the file unknowingly installed a remote access trojan (RAT), allowing attackers to monitor activities and steal credentials.
+        </p>
+        <img src="/images/double-file-extension-spoofing.jpg" alt="Double Extension Malware Example" style="max-width:100%; border-radius:8px;">
+        <p class="caption">Figure 1: A fake PDF file that is actually an executable virus.</p>
+
+        <h2>✅ How to Stay Safe</h2>
+        <p>SOC Analysts and users can protect against this trick by:</p>
+        <ul>
+            <li>Enabling file extension visibility in Windows/Mac settings.</li>
+            <li>Not opening attachments from unknown senders.</li>
+            <li>Scanning files with antivirus or VirusTotal before opening.</li>
+            <li>Testing unknown files in a sandbox or virtual machine.</li>
+            <li>Training employees to identify suspicious attachments.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            The Double Extension Trap works because it exploits trust — we trust what we see. But in cybersecurity, what you see is not always what you get.
+            By showing file extensions, being cautious with attachments, and scanning files before opening them, you can avoid becoming a victim.
+        </p>
+    </div>
+</body>
+</html>

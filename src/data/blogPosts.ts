@@ -18,6 +18,16 @@ export const categoryMap: Record<string, string> = {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 'cyberattacks-3',
+    category: 'cyberattacks',
+    slug: 'double-file-extension-spoofing',
+    title: 'Cybersecurity Awareness: That “.pdf” File Might Not Be Safe at All! 📎',
+    date: '2025-08-10',
+    author: 'Saiprasanna',
+    previewContent: 'Have you ever opened a file thinking it was just a harmless PDF? You might have fallen for a Double File Extension Spoofing trick.',
+    htmlPath: '/posts/cyberattacks/double-file-extension-spoofing.html',
+  },
+  {
     id: 'tools-techniques-2',
     category: 'tools-techniques',
     slug: 'fofa-cybersecurity-search-engine',
