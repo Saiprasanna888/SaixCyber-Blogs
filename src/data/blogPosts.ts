@@ -18,6 +18,16 @@ export const categoryMap: Record<string, string> = {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 'tools-techniques-3',
+    category: 'tools-techniques',
+    slug: 'dorkgpt-ai-google-dorking',
+    title: 'DorkGPT – AI-Powered Google Dorking for SOC Analysts 🔍',
+    date: '2025-08-10',
+    author: 'Saiprasanna',
+    previewContent: 'Discover DorkGPT, an AI tool that helps you create advanced Google search queries to find leaked data, exposed files, and other online risks faster.',
+    htmlPath: '/posts/tools-techniques/dorkgpt-ai-google-dorking.html',
+  },
+  {
     id: 'cyberattacks-3',
     category: 'cyberattacks',
     slug: 'double-file-extension-spoofing',

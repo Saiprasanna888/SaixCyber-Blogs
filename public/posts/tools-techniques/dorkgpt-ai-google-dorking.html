@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DorkGPT – AI-Powered Google Dorking for SOC Analysts 🔍</title>
+    <link rel="stylesheet" href="/src/globals.css">
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: hsl(var(--card));
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid hsl(var(--border));
+        }
+        h1 {
+            color: hsl(var(--primary));
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            color: hsl(var(--primary));
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-top: 1px solid hsl(var(--border));
+            padding-top: 1.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 1rem;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 2rem;
+            border-bottom: 1px solid hsl(var(--border));
+            padding-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: hsl(var(--primary));
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .caption {
+            font-size: 0.8rem;
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        code {
+            background-color: hsl(var(--secondary));
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            color: hsl(var(--secondary-foreground));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to Homepage</a>
+        <h1>DorkGPT – AI-Powered Google Dorking for SOC Analysts 🔍</h1>
+        <div class="meta">
+            By Saiprasanna on 10 August 2025
+        </div>
+        
+        <p>
+            Ever wished you could instantly find leaked data, exposed files, or weak points in your organization’s online presence without spending hours crafting complex Google searches? That’s where DorkGPT comes in. It’s like having an AI assistant that writes Google Dorks (special search queries) for you — so you can uncover potential risks faster.
+        </p>
+        <p>
+            In this blog, we’ll explain what DorkGPT is, how it works, and why it’s useful for SOC Analysts.
+        </p>
+        <img src="/images/dorkgpt-ui-homepage.png" alt="DorkGPT Homepage Interface" style="max-width:100%; border-radius:8px;">
+        <p class="caption">Figure 1: The DorkGPT interface for generating search queries.</p>
+
+        <h2>🛡️ What is DorkGPT?</h2>
+        <p>
+            DorkGPT is an AI tool that helps you create advanced Google search queries (called Google Dorks) without needing to remember the complicated syntax. These searches can reveal publicly available but sensitive data that hackers could exploit — such as open directories, login pages, outdated software, and even exposed passwords.
+        </p>
+
+        <h2>🔍 How Attackers Use Google Dorks</h2>
+        <p>Attackers often use Google Dorks to:</p>
+        <ul>
+            <li>Find confidential files left publicly accessible.</li>
+            <li>Identify vulnerable web pages or outdated systems.</li>
+            <li>Locate login pages for brute-force attacks.</li>
+            <li>Discover leaked credentials in plain text.</li>
+        </ul>
+        <p>For example, an attacker might search for: <code>site:example.com filetype:pdf "confidential"</code> to find internal PDF files containing sensitive keywords.</p>
+
+        <h2>🏷️ Real-World SOC Use Case</h2>
+        <p>
+            A SOC Analyst investigating a potential data leak receives an alert that sensitive files might be exposed online. Instead of manually writing dozens of different Google Dorks, they use DorkGPT to instantly generate targeted queries like:
+        </p>
+        <ul>
+            <li><code>site:company.com filetype:xls password</code></li>
+            <li><code>site:company.com "confidential"</code></li>
+        </ul>
+        <p>Within minutes, they locate an exposed spreadsheet on a forgotten public server, preventing a potential breach.</p>
+        <img src="/images/dorkgpt-generated-dork-example.png" alt="Example of a dork generated by DorkGPT" style="max-width:100%; border-radius:8px;">
+        <p class="caption">Figure 2: DorkGPT generating a specific query for a SOC Analyst job search.</p>
+
+        <h2>✅ How SOC Analysts Can Use DorkGPT</h2>
+        <p>SOC Analysts can use DorkGPT to:</p>
+        <ul>
+            <li>Monitor their organization’s online footprint.</li>
+            <li>Check for leaked credentials or documents.</li>
+            <li>Identify outdated software versions exposed to the web.</li>
+            <li>Verify vendor/partner domains for accidental leaks.</li>
+        </ul>
+
+        <h2>📌 Best Practices for Using DorkGPT</h2>
+        <ul>
+            <li>Always have permission before scanning any domain.</li>
+            <li>Use it as part of a threat-hunting routine.</li>
+            <li>Combine results with SIEM alerts for faster incident response.</li>
+            <li>Educate team members on identifying exposed assets.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+            DorkGPT makes it easier for SOC Analysts to think like attackers — and act before they do. By automating the creation of complex Google Dorks, analysts can save time, uncover hidden risks, and strengthen their organization’s defenses.
+        </p>
+        <p>
+            Stay tuned for my next blog, where I’ll share a ready-to-use SOC Analyst Dork List you can apply immediately.
+        </p>
+    </div>
+</body>
+</html>
